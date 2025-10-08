@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6C63FF" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>The Broom Fairy</title>
+</head>
+<body>
+  <div id="splash" class="splash">
+    <div class="splash-inner">
+      <span class="logo">🧚‍♀️</span>
+      <span class="brand-name">The Broom Fairy</span>
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <!-- Login Screen -->
+  <section id="login" class="screen active">
+    <div class="container">
+      <div class="brand center">🧚‍♀️ <span class="brand-name">The Broom Fairy</span></div>
+      <form id="login-form" class="form card">
+        <div class="input"><input id="email" type="email" placeholder="Email" required /></div>
+        <div class="input"><input id="password" type="password" placeholder="Contraseña" required minlength="4" /></div>
+        <div id="login-error" class="error hidden">Credenciales incorrectas</div>
+        <button class="btn primary" type="submit">Entrar</button>
+        <button class="text-btn" id="forgot-link">¿Olvidaste tu contraseña?</button>
+      </form>
+      <div class="divider"><span>o</span></div>
+      <button class="btn google" id="google-login">Entrar con Google</button>
+      <button class="btn wallet" id="wallet-login">Entrar con Wallet</button>
+    </div>
+  </section>
+
+  <!-- Wallet Modal -->
+  <div id="wallet-modal" class="modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span>Selecciona tu Wallet</span>
+        <button class="icon-btn" id="wallet-close">✕</button>
+      </div>
+      <div class="modal-body wallet-grid">
+        <div class="wallet-item" data-wallet="metamask"><img src="https://cryptologos.cc/logos/metamask-fox-logo.png" alt="Metamask" />Metamask</div>
+        <div class="wallet-item" data-wallet="bybit"><img src="https://cryptologos.cc/logos/bybit-bybit-logo.png" alt="Bybit" />BYBIT</div>
+        <div class="wallet-item" data-wallet="binance"><img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="Binance" />Binance</div>
+        <div class="wallet-item" data-wallet="bitcoin"><img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin" />Bitcoin</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Screen -->
+  <section id="dashboard" class="screen">
+    <div class="container">
+      <h1>¡Bienvenido, <span id="user-name"></span>!</h1>
+      <div id="wallet-info" class="wallet-info"></div>
+      <button class="btn" id="change-wallet">Cambiar método de pago</button>
+      <button class="btn" id="add-card">Agregar tarjeta</button>
+      <button class="btn primary" id="pay-now">Pagar ahora</button>
+      <h2>Favoritos</h2>
+      <div id="favorites" class="h-scroll"></div>
+      <h2>Notificaciones</h2>
+      <div id="notifications" class="list"></div>
+      <button class="btn danger" id="cancel-service">Cancelar servicio</button>
+    </div>
+  </section>
+
+  <!-- Cancel Service Modal -->
+  <div id="cancel-dialog" class="modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span>Cancelar servicio</span>
+        <button class="icon-btn" id="cancel-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p id="cancel-text"></p>
+        <div class="row end gap">
+          <button class="btn" id="cancel-no">No</button>
+          <button class="btn danger" id="cancel-yes">Sí, cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NFT Screen -->
+  <section id="nft" class="screen">
+    <div class="container">
+      <h2>Mis NFTs</h2>
+      <div id="nft-list" class="nft-list"></div>
+    </div>
+  </section>
+
+  <!-- Services Screen -->
+  <section id="services" class="screen">
+    <div class="container">
+      <h2>Servicios</h2>
+      <p>Próximamente...</p>
+    </div>
+  </section>
+
+  <!-- Calendar Screen -->
+  <section id="calendar" class="screen">
+    <div class="container">
+      <h2>Calendario</h2>
+      <p>Próximamente...</p>
+    </div>
+  </section>
+
+  <!-- Statistics Screen -->
+  <section id="statistics" class="screen">
+    <div class="container">
+      <h2>Estadísticas</h2>
+      <p>Próximamente...</p>
+    </div>
+  </section>
+
+  <!-- Chat Modal -->
+  <div id="chat-modal" class="modal">
+    <div class="modal-card chat">
+      <div class="modal-header">
+        <span>Chat</span>
+        <button class="icon-btn" id="chat-close">✕</button>
+      </div>
+      <div id="chat-messages" class="chat-messages"></div>
+      <div class="chat-input">
+        <input id="chat-text" maxlength="2000" placeholder="Escribe un mensaje... (máx 2000 caracteres)" />
+        <button class="icon-btn" id="chat-send">Enviar</button>
+        <button class="icon-btn" id="chat-rec">🎤</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navegación inferior -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-target="dashboard"><i>🏠</i><span>Inicio</span></button>
+    <button class="nav-item" data-target="nft"><i>🖼️</i><span>NFT</span></button>
+    <button class="nav-item" data-target="services"><i>🧹</i><span>Servicios</span></button>
+    <button class="nav-item" data-target="calendar"><i>📅</i><span>Calendario</span></button>
+    <button class="nav-item" data-target="statistics"><i>📊</i><span>Estadísticas</span></button>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
